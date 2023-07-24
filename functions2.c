@@ -135,7 +135,7 @@ int print_reverse(va_list types, char buffer[],
 	}
 	return (count);
 }
-/************************* PRINT A STRING IN ROT13 *************************/
+/************* PRINT A STRING IN ROT13 *************/
 /**
  * print_rot13string - Print a string in rot13.
  * @types: Lista of arguments
@@ -150,7 +150,7 @@ int print_rot13string(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	char x;
-	char *str;
+	char *string;
 	unsigned int i, j;
 	int count = 0;
 	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -164,12 +164,12 @@ int print_rot13string(va_list types, char buffer[],
 	UNUSED(size);
 
 	if (str == NULL)
-		str = "(AHYY)";
-	for (i = 0; str[i]; i++)
+		string = "(AHYY)";
+	for (i = 0; string[i]; i++)
 	{
 		for (j = 0; in[j]; j++)
 		{
-			if (in[j] == str[i])
+			if (in[j] == string[i])
 			{
 				x = out[j];
 				write(1, &x, 1);
@@ -179,7 +179,7 @@ int print_rot13string(va_list types, char buffer[],
 		}
 		if (!in[j])
 		{
-			x = str[i];
+			x = string[i];
 			write(1, &x, 1);
 			count++;
 		}
